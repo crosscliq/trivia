@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="GAMES DASHBOARD DEFAULT LAYOUT">
+		<message>
+			<![CDATA[GAMES DASHBOARD DEFAULT LAYOUT DESC]]>
+		</message>
+	</layout>
+	<state>
+		<name>GAMES DASHBOARD DEFAULT LAYOUT</name>
+		<description>GAMES DASHBOARD DEFAULT LAYOUT DESC</description>
+        <!--
+        <url addpath="/administrator/components/com_games/elements">
+            <param name="filter_group" type="gamesgroup" section="com_games" default="" label="Select Group" description="A Tag Group" />
+            <param name="task" type="hidden" section="com_games" default="view" />
+        </url>
+        -->
+	</state>
+</metadata>

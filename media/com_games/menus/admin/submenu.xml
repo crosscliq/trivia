@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+   <link>
+       <name>Games</name>
+       <url>index.php?option=com_games&#38;view=games</url>
+   </link>
+  
+   <link>
+       <name>Questions</name>
+       <url>index.php?option=com_games&#38;view=questions</url>
+   </link>
+   <link>
+       <name>Answers</name>
+       <url>index.php?option=com_games&#38;view=answers</url>
+   </link>
+    <link>
+       <name>Users</name>
+       <url>index.php?option=com_games&#38;view=Users</url>
+   </link>
+   <link>
+       <name>Users Awswers</name>
+       <url>index.php?option=com_games&#38;view=useranswers</url>
+   </link>
+   <link>
+       <name>Configuration</name>
+       <url>index.php?option=com_games&#38;view=config</url>
+   </link>
+</menu>
