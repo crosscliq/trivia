@@ -123,7 +123,7 @@ var questions = {}
 		
 		if ($(this).data('clr') == 'green') { 
 			$('.score').css({'font-size':'27px'});
-			score=score+5/100*100;
+			score=score+5;
 			$('.score').text(score);
 
 			$('.score-box').toggleClass('green',3000);

@@ -271,9 +271,9 @@ class GamesControllerGames extends GamesController
 						$table->answer_id = $answerid;
 
 						//TODO make Answers store the score so we can have partially right answers
-						if($answer->correct) {
+						if($answer->correct == 1) {
 
-						  $table->score = $question->score;
+						  $table->score = $question->value;
 						} else {
 							//if they got one wrong they don't get a chance to win. 
 							$allcorrect = false;
