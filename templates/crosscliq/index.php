@@ -52,7 +52,7 @@ else
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 	<jdoc:include type="head" />
 	<?php // Add Stylesheets
 $doc->addStyleSheet('templates/'.$this->template.'/css/styles.css');
@@ -71,17 +71,7 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.r
 $(document).ready(function() {
 			$(".modal").click( function(){ $(this).toggleClass('hide'); } );
 			$(".score_btn").click( function(event){  $('.modal').toggleClass('hide'); event.stopPropagation(); } );
-			$("#1").rabidScratchCard({
-	
-				revealRadius:40,
-				percentComplete:70,
-				revealOnComplete:true,
-				updateOnMouseMove:false,//setting this option is processor intensive. So, set this only if necessary. If set to false, % will be calculated only on muse up of scracthing
-				updateOnFingerMove:false,
-			       onScratchComplete : function(percentScratched) {
-	
-			    }
-			});
+
 
 
     setTimeout(function() { $('#loader').fadeOut(500); }, 1500);
@@ -167,9 +157,33 @@ baseUrl = '<?php echo JURI::root(); ?>/index.php?option=com_games&view=games&tas
 $.ajax({
   	url: baseUrl,
   	data: questions,
+	dataType:"json",
   	type: 'post',
   	success: function(data) {
   		console.log(data);
+
+
+
+		if(data.status =="loser") {
+		$('.scratchCard').attr('data-backgroundimage','images/notwinner.png');
+		} else {
+
+		$('.scratchCard').attr('data-backgroundimage','images/winner.png');
+		}
+
+
+			$("#1").rabidScratchCard({
+				
+				revealRadius:40,
+				percentComplete:40,
+				revealOnComplete:true,
+				updateOnMouseMove:false,//setting this option is processor intensive. So, set this only if necessary. If set to false, % will be calculated only on muse up of scracthing
+				updateOnFingerMove:false,
+			       onScratchComplete : function(percentScratched) {
+	
+			    }
+			});
+
   	}
 });
 

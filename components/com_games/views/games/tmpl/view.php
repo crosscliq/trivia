@@ -18,7 +18,7 @@
   <tr <?php if(@$player->active){ echo 'class="active"';} ?> >
    <td>#<?php echo $player->rank; ?> </td>
    <td><?php echo $player->name; ?></td>
-   <td align="right"><?php echo $player->total; ?></td>
+   <td align="right"><?php echo $player->total; ?><?php if($player->winner_id) {echo '&nbsp;&nbsp;<img src="images/win.png" align="center" height="13px"/>'; }?></td>
   </tr>
   	<?php endforeach; ?>
 </tbody>
@@ -39,7 +39,7 @@
 	<div class="top-bar">
 		<div class="info-box">
 		<h1>TRIVIA</h1>
-			<p>Click the question box to answer, speed matters!</p>
+			<p>Click the question box to answer, good luck!</p>
 		</div>
 		<div class="score-box">
 			<div class="score-glass">
@@ -82,7 +82,7 @@
     </div>
 
 	<div id="scratch" style="-webkit-perspective: 1000; display: none;z-index:100000;padding-top:100px;top:0;width:100%; height:100%;background:rgba(255,255,255,0.8);text-align:center;">
-  	<div id="1" class="scratchCard" data-backGroundImage="images/win.jpg"  data-foreGroundImage="images/reveal.jpg"></div>
+  	<div id="1" class="scratchCard" data-backGroundImage="images/notwinner.png"  data-foreGroundImage="images/reveal.jpg"></div>
 	</div>
 
     <div class="full_nav" style="display:none;">
