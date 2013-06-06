@@ -75,7 +75,7 @@ $(document).ready(function() {
 
 
     setTimeout(function() { $('#loader').fadeOut(500); }, 1500);
-var score=0;
+var score= parseInt($('.score').text());
 var qid=1;	
 var questions = {}
 

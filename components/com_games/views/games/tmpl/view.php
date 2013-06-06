@@ -4,7 +4,7 @@
 	</div>
 </div>
 <div class="moby_wrap mini_nav_wrap">
-
+<?php $points = 0; ?>
 <div class="modal hide">
 <h1>Leader Board</h1>
 <table width="100%">
@@ -15,7 +15,7 @@
  </thead>
  <tbody>
  	<?php  foreach ($this->leaderboard as $player) : ?>
-  <tr <?php if(@$player->active){ echo 'class="active"';} ?> >
+  <tr <?php if(@$player->active){ echo 'class="active"';$points = $player->total;  } ?> >
    <td>#<?php echo $player->rank; ?> </td>
    <td><?php echo $player->name; ?></td>
    <td align="right"><?php echo $player->total; ?><?php if($player->winner_id) {echo '&nbsp;&nbsp;<img src="images/win.png" align="center" height="13px"/>'; }?></td>
@@ -43,7 +43,7 @@
 		</div>
 		<div class="score-box">
 			<div class="score-glass">
-				<span class="score">0</span>
+				<span class="score"><?php echo $points; ?></span>
 				<span class="score-title"><?php echo JFactory::getUser()->name; ?>'s Score</span>
 			</div>
 		</div>
