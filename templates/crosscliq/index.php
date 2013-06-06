@@ -113,7 +113,7 @@ var questions = {}
 	
 	
 			// set up click/tap panels
-			$('.click').click(function(event){
+			$('.no-blur .click').live('click',function(event){
 				$(this).toggleClass('flip');
 			});
 
@@ -123,11 +123,13 @@ var questions = {}
 		
 		$(this).toggleClass('clicked');	
 	
-		setTimeout(function() { $(this).parents('li').remove(); }, 900);
+		setTimeout(function() { $(this).parents('div li').remove(); }, 100);
 		$(this).parents('li').css({ margin: '-200px 5px 0px 5px', opacity: '0' });
-
-
 		$(this).parents('li').next().addClass('no-blur');
+		//$(this).parents('li').remove(); 
+
+
+
 		
 		if ($(this).data('clr') == 'green') { 
 			$('.score').css({'font-size':'27px'});
@@ -203,7 +205,5 @@ $.ajax({
 		<jdoc:include type="component" />
 	</div>
 	<jdoc:include type="modules" name="debug" style="none" />
-	<!--Retina JS-->
-<script type="text/javascript" src="<?php echo $this->baseurl . '/templates/' . $this->template . 'js/retina.js' ;?>" ></script>
 </body>
 </html>
