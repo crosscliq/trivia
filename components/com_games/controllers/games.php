@@ -186,6 +186,23 @@ class GamesControllerGames extends GamesController
 
 	}
 
+
+	function redeemWinner($userid, $gameid, $prize) {
+		Games::load( 'GamesTableWinners', 'tables.winners');
+		$winners = DSCTable::getInstance('Winners','GamesTable');
+		$keys = array('user_id' => $userid, 'game_id' => $gameid, 'prize_id' => $prize->prize_id );
+		$winners->load($keys);
+		$winners->user_id = $userid;
+		$winners->game_id = $gameid;
+		$winners->prize_id = $prize->prize_id;
+		
+		if($winners->store()) {
+			$prize->redeem = $prize->redeem +1;
+			$prize->store();
+		}
+
+	}
+
 	function isWinner($userid, $gameids) {
 		$response = array();
 		$response['winner'] = false;
@@ -198,6 +215,8 @@ class GamesControllerGames extends GamesController
 			//they won, but there is no more prizes
 			$response['winner'] = false;
 			$response['prize'] = 'null';
+		} else {
+			$this->redeemWinner($userid, $gameid, $prize);
 		}
 		}	
 

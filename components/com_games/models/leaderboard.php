@@ -19,10 +19,11 @@ Class GamesModelLeaderboard extends GamesModelDashboard {
 	function getLeaderboard($user_id = null) {
 		$db = JFactory::getDbo();
  
-		$query = "SELECT ua.user_id, users.name,  sum(ua.score) as total
+		$query = "SELECT ua.user_id, users.name,  sum(ua.score) as total , w.winner_id
 FROM triv_games_useranswers as ua 
  LEFT JOIN triv_users as users ON  users.id = ua.user_id 
- GROUP BY user_id ORDER BY total DESC  ";
+ LEFT JOIN triv_games_winners as w ON  w.user_id = ua.user_id 
+ GROUP BY user_id ORDER BY total DESC";
  		$db->setQuery($query);
  		$results = $db->loadObjectList();
  		$find = 1;
@@ -32,6 +33,8 @@ FROM triv_games_useranswers as ua
  			
  			foreach($results as $user) {
  				$user->rank = $i;
+
+ 				
  				
 
  				if($user_id == $user->user_id) {
