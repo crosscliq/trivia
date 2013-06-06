@@ -14,13 +14,13 @@ class JConfig {
 	public $dbtype = 'mysqli';
 	public $host = 'localhost';
 	public $user = 'root';
-	public $password = 'F0rgetting01';
+	public $password = 'chris01';
 	public $db = 'trivia';
 	public $dbprefix = 'triv_';
 	public $live_site = '';
 	public $secret = 'yZzLluvF8RPKOSxl';
 	public $gzip = '0';
-	public $error_reporting = 'none';
+	public $error_reporting = 'development';
 	public $helpurl = 'http://help.joomla.org/proxy/index.php?option=com_help&keyref=Help{major}{minor}:{keyref}';
 	public $ftp_host = '';
 	public $ftp_port = '';
@@ -53,8 +53,8 @@ class JConfig {
 	public $sef_suffix = '0';
 	public $unicodeslugs = '0';
 	public $feed_limit = '10';
-	public $log_path = '/Users/chris/Repos/CrossCliq/rochegame/Joomla_3.1.1/logs';
-	public $tmp_path = '/Users/chris/Repos/CrossCliq/rochegame/Joomla_3.1.1/tmp';
+	public $log_path = '/Users/chris/Repos/CrossCliq/rochegame/triv/logs';
+	public $tmp_path = '/Users/chris/Repos/CrossCliq/rochegame/triv/tmp';
 	public $lifetime = '15';
 	public $session_handler = 'database';
 	public $MetaRights = '';

@@ -168,9 +168,14 @@ class GamesControllerGames extends GamesController
 	function findPrize($userid, $gameids) {
 		Games::load( 'GamesTablePrizes', 'tables.prizes');
 		$prize = DSCTable::getInstance('Prizes','GamesTable');
+	
 		$keys = array('game_id' => $gameids[0]);
+	
 		$return = null;
+
+		
 		if($prize->load($keys)) {
+			
 			$return = $prize;
 			if($prize->redeemed >= $prize->qty) {
 				//they won but there is no more prizes for this station. 
@@ -180,9 +185,8 @@ class GamesControllerGames extends GamesController
 			$return = null;
 		}
 
-
-
-
+		
+		return $return;
 
 	}
 
@@ -197,26 +201,27 @@ class GamesControllerGames extends GamesController
 		$winners->prize_id = $prize->prize_id;
 		
 		if($winners->store()) {
-			$prize->redeem = $prize->redeem +1;
+			$prize->redeemed = $prize->redeemed +1;
 			$prize->store();
 		}
 
 	}
 
-	function isWinner($userid, $gameids) {
+	function isWinner($userid, $gameid) {
 		$response = array();
 		$response['winner'] = false;
 		$chance = rand(1, 100);
 		$winner = false;
-		if($chance > 50){
+		if($chance > 1){
 		$response['winner'] = true;
-		$response['prize'] = $this->findPrize($userid, $gameids);
+		$response['prize'] = $this->findPrize($userid,  $gameid);
+		
 		if(empty($response['prize']->prize_id)) {
 			//they won, but there is no more prizes
 			$response['winner'] = false;
 			$response['prize'] = 'null';
 		} else {
-			$this->redeemWinner($userid, $gameid, $prize);
+			$this->redeemWinner($userid, $gameid, $response['prize']);
 		}
 		}	
 
@@ -252,14 +257,11 @@ class GamesControllerGames extends GamesController
 			$question = DSCTable::getInstance('Questions','GamesTable');
 
 			if($question->load($questionid)) {
-			$gameids[] = $question->game_id;
-			Games::load( 'GamesTableAnswers', 'tables.answers');
-			$answer = DSCTable::getInstance('Answers','GamesTable');
+						$gameids[] = $question->game_id;
+						Games::load( 'GamesTableAnswers', 'tables.answers');
+						$answer = DSCTable::getInstance('Answers','GamesTable');
 			
 						if($answer->load($answerid)) {
-
-						
-					
 						Games::load( 'GamesTableUseranswers', 'tables.useranswers');
 						$table = DSCTable::getInstance('Useranswers','GamesTable');
 						$keys = array('user_id' => $user_id, 'question_id' => $questionid, 'answer_id' => $answerid);
@@ -290,8 +292,11 @@ class GamesControllerGames extends GamesController
 
 		}
 
+	
+
 		if($allcorrect) {
-			$winner = $this->isWinner($user_id, $gameids);
+			$winner = $this->isWinner($user_id, $gameids['0']);
+			
 			if($winner['winner']) {
 				$msg['response'] = 'You are a winner';
 	 			$msg['status'] = 'winner';
