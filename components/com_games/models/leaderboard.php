@@ -16,7 +16,7 @@ Class GamesModelLeaderboard extends GamesModelDashboard {
 
 
 
-	function getLeaderboard($user_id = null) {
+	function getLeaderboard($user_id = null, $limit = 10) {
 		$db = JFactory::getDbo();
  
 		$query = "SELECT ua.user_id, users.name,  sum(ua.score) as total 
@@ -41,11 +41,12 @@ FROM triv_games_useranswers as ua
  				if($user_id == $user->user_id) {
  					$user->active = 1;
  					$find = 0;
- 					if($i > 10) {
+ 					if($i > $limit) {
  						$leaderboard[] = $user;
  					}
  				} 
- 				if($i < 11) {
+ 				$limit++;
+ 				if($i < $limit) {
  					$leaderboard[] = $user;
  				}
  				

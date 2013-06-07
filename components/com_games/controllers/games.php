@@ -74,7 +74,7 @@ class GamesControllerGames extends GamesController
 		
 		$model = $this->getModel( 'leaderboard' );
 		
-		$rows = $model->getLeaderboard(JFactory::getUser()->id);
+		$rows = $model->getLeaderboard(null, 10000);
 	
 		$view   = $this->getView( $this->get('suffix'), 'html' );
 		$view->setModel( $model, true );

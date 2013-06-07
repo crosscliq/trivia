@@ -749,3 +749,27 @@ header.mini_nav a.score_btn{
 		 ul.primary_nav li{ width:21.9%;}
 		 #Gallery li{ width:132px;}
 	 }
+
+
+.layout-leaderboard h1 {
+	font-size: 50px;
+}
+
+body.layout-leaderboard {
+
+height: 100%;
+background-size: auto;
+background: none !important;
+font-family: DINRegular, Arial, sans-serif;
+font-size: 25px;
+width:100% !important;
+max-width:100% !important;
+margin: 0px;
+overflow: hidden;
+text-align: center;
+}
+.layout-leaderboard .page-center {
+	width:600px;
+	margin: 0 auto;
+}
+
