@@ -18,7 +18,7 @@ $document->addStyleSheet('http://twitter.github.io/bootstrap/assets/css/bootstra
   <tr <?php if(@$player->active){ echo 'class="active"';$points = $player->total;  } ?> >
    <td>#<?php echo $player->rank; ?> </td>
    <td><?php echo $player->name; ?></td>
-   <td align="right"><?php echo $player->total; ?><?php if($player->winner_id) {echo '&nbsp;&nbsp;<img src="images/win.png" align="center" height="13px"/>'; }?></td>
+   <td align="right"><?php echo $player->total; ?><?php foreach($player->winner_ids as $win ) {echo '&nbsp;&nbsp;<img src="images/win-'.$win->game_id.'.png" align="center" height="13px"/>'; }?></td>
   </tr>
   	<?php endforeach; ?>
 </tbody>

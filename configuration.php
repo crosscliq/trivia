@@ -20,7 +20,7 @@ class JConfig {
 	public $live_site = '';
 	public $secret = 'yZzLluvF8RPKOSxl';
 	public $gzip = '0';
-	public $error_reporting = 'development';
+	public $error_reporting = 'none';
 	public $helpurl = 'http://help.joomla.org/proxy/index.php?option=com_help&keyref=Help{major}{minor}:{keyref}';
 	public $ftp_host = '';
 	public $ftp_port = '';
@@ -55,7 +55,7 @@ class JConfig {
 	public $feed_limit = '10';
 	public $log_path = '/Users/chris/Repos/CrossCliq/rochegame/triv/logs';
 	public $tmp_path = '/Users/chris/Repos/CrossCliq/rochegame/triv/tmp';
-	public $lifetime = '35';
+	public $lifetime = '15';
 	public $session_handler = 'database';
 	public $MetaRights = '';
 	public $sitename_pagetitles = '0';

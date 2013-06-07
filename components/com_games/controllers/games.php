@@ -210,9 +210,9 @@ class GamesControllerGames extends GamesController
 	function isWinner($userid, $gameid) {
 		$response = array();
 		$response['winner'] = false;
-		$chance = rand(1, 100);
+		$chance = rand(1, 30);
 		$winner = false;
-		if($chance > 1){
+		if($chance == 15){
 		$response['winner'] = true;
 		$response['prize'] = $this->findPrize($userid,  $gameid);
 		
@@ -294,7 +294,7 @@ class GamesControllerGames extends GamesController
 
 	
 
-		if($allcorrect) {
+		//if($allcorrect) {
 			$winner = $this->isWinner($user_id, $gameids['0']);
 			
 			if($winner['winner']) {
@@ -304,7 +304,7 @@ class GamesControllerGames extends GamesController
 				$msg['error'] = '';	
 			}
 
-		}
+		//}
 
 
 	} else {
@@ -316,7 +316,18 @@ class GamesControllerGames extends GamesController
 
 	}
 
+	function resetGame() {
 
+		$db = JFactory::getDbo();
+ 
+		$query = "TRUNCATE #__games_useranswers";
+		$db->setQuery($query);
+		$db->query();
+		
+		echo 'Game reset';
+		die();
+
+	}
 
 
 

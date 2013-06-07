@@ -34,9 +34,9 @@ FROM triv_games_useranswers as ua
  			foreach($results as $user) {
  				$user->rank = $i;
 
- 				$sql = " SELECT winner_id from triv_games_winners  WHERE  user_id = '". $user->user_id . "' limit 1";
+ 				$sql = " SELECT * from triv_games_winners  WHERE  user_id = '". $user->user_id . "'";
  				$db->setQuery($sql);
- 				$user->winner_id = $db->loadResult();
+ 				$user->winner_ids = $db->loadObjectList();
 
  				if($user_id == $user->user_id) {
  					$user->active = 1;
@@ -54,6 +54,21 @@ FROM triv_games_useranswers as ua
  			} 
 
  		return $leaderboard;
+
+
+	}
+
+
+	function getWonStations($user_id = null, $limit = 10) {
+		$db = JFactory::getDbo();
+ 
+		$sql = " SELECT * from triv_games_winners ";
+
+ 		$db->setQuery($query);
+ 		$results = $db->loadObjectList();
+ 		
+
+ 		return $results;
 
 
 	}
