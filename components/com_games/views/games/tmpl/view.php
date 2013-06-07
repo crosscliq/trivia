@@ -18,7 +18,8 @@
   <tr <?php if(@$player->active){ echo 'class="active"';$points = $player->total;  } ?> >
    <td>#<?php echo $player->rank; ?> </td>
    <td><?php echo $player->name; ?></td>
-   <td align="right"><?php echo $player->total; ?><?php if($player->winner_id) {echo '&nbsp;&nbsp;<img src="images/win.png" align="center" height="13px"/>'; }?></td>
+   <td align="right"><?php echo $player->total; ?><?php if($player->winner_id) {
+ echo '&nbsp;&nbsp;<img src="images/win.png" align="center" height="13px"/>'; }?></td>
   </tr>
   	<?php endforeach; ?>
 </tbody>
@@ -27,7 +28,7 @@
 </div>
 
     <header class="mini_nav"> 
-    <a ontouchstart="" class="navigate_btn" href="#"></a>    
+    <!-- hide this for now <a ontouchstart="" class="navigate_btn" href="#"></a>    -->
     <a id="logo" href="/"><img src="images/logo.png" alt=""></a>
     <a ontouchstart="" class="score_btn"></a>
     </header> 

@@ -34,8 +34,8 @@ FROM triv_games_useranswers as ua
  			foreach($results as $user) {
  				$user->rank = $i;
 
- 				$sql = " SELECT winner_id triv_games_winners  ON  user_id = ". $user->user_id . "limit 1";
- 				$db->setQuery($query);
+ 				$sql = " SELECT winner_id from triv_games_winners  WHERE  user_id = '". $user->user_id . "' limit 1";
+ 				$db->setQuery($sql);
  				$user->winner_id = $db->loadResult();
 
  				if($user_id == $user->user_id) {
