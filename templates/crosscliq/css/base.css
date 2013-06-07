@@ -630,7 +630,8 @@ header.mini_nav a.score_btn{
 	background:#fff;
 	color:#666;
 	font-weight:bold;
-	padding:2px;
+	padding:10px;
+	font-size:1.3em;
 	text-align:center;
 	width:100%;
 }
@@ -704,6 +705,56 @@ header.mini_nav a.score_btn{
     font-style: normal;
 
 }
+
+label {
+	color:#fff;
+}
+input[type=text]{
+	border-radius:6px;
+	padding:3px;
+}
+input[type=submit]{
+	margin-top:10px;
+	width:100%;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #7ebb6e), color-stop(1, #85b778) );
+	background-color:#77d42a;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #59874d;
+	display:inline-block;
+	color:#fff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #59874d;
+}
+input[type=submit]:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #85b778), color-stop(1, #7ebb6e) );
+	background-color:#5cb811;
+}
+input[type=submit]:active {
+	position:relative;
+	top:1px;
+}
+
+.login {
+	background:#fff;
+	top:0;
+	left:0;
+	position:absolute;
+	border-radius:5px;
+	box-shadow:2px 2px 2px 2px rgba(0,0,0,0.2);
+	margin:2%;
+	width:90%;
+	
+	padding:10px;
+	z-index:9999;
+}
+
 .modal {
 	background:#fff;
 	top:0;

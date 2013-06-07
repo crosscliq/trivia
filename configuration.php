@@ -55,7 +55,7 @@ class JConfig {
 	public $feed_limit = '10';
 	public $log_path = '/Users/chris/Repos/CrossCliq/rochegame/triv/logs';
 	public $tmp_path = '/Users/chris/Repos/CrossCliq/rochegame/triv/tmp';
-	public $lifetime = '15';
+	public $lifetime = '35';
 	public $session_handler = 'database';
 	public $MetaRights = '';
 	public $sitename_pagetitles = '0';

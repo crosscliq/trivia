@@ -1,15 +1,16 @@
 
-
+<div class="login">
 
 <form name="loginform" id="loginformid" action="<?php echo JURI::base(); ?>index.php?option=com_games&view=games&task=dologin" method="post" >
 
 
 First name: <input type="text" name="firstname"><br>
 Last name: <input type="text" name="lastname">
-<input type="hidden" name="return" value="<?php echo $this->return; ?>">
-<input type="submit" name="submit" id='submit'>
+<input type="hidden" name="return" value="<?php echo $this->return; ?>"><br/>
+<input type="submit" name="submit" id='submit' value='login'>
 </form>
 
+</div>
 <script>
 	 <script>
 
